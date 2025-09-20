@@ -1,5 +1,3 @@
-旧レポのリンクの文法を再度確認　わからないならわからないということ
- 
 # Research Papers on Human-AI Collaborative Intelligence
 **Author:** Torisan Unya [@torisan_unya]
 **Notice: Repository Archived**
