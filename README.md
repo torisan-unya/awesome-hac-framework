@@ -1,6 +1,6 @@
 # Awesome Human-AI Collaborative Intelligence Framework (Awesome-HAC-Framework)
 
-**Author:** Torisan Unya [@torisan_unya]
+**Author:** Torisan Unya [@torisan_unya] (ORCID: https://orcid.org/0009-0004-7067-9765)
 
 **Elevator Pitch (In Plain English):** Can humans and AI team up to be smarter than either alone? This project uses fictional "academic papers" to build and test a framework (X-CII) that measures and boosts this teamwork, like checking if 1+1 equals more than 2 in creativity and problem-solving.
 
