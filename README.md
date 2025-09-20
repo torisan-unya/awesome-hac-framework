@@ -10,7 +10,7 @@ Inspired by Awesome lists, this repository focuses on the iterative development 
 The papers and simulations here are fictional artifacts generated via human-AI collaboration. They demonstrate framework evolution but make no real-world claims. For real analogs, refer to sources like HAIC (arXiv:2407.19098).
 
 ## Legacy Development
-This repository evolved from the original [AI-Novel-Prompt-Hybrid](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/tree/main/academic-paper) project. The original repository's development has been frozen, but all historical files remain available there for reference, tracing the meta-exercise from novel prompting hybrids to advanced HAC theory.
+This repository evolved from the original [AI-Novel-Prompt-Hybrid](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/tree/main/academic-paper) project, which has been frozen for further development. All historical files remain available there for reference, tracing the meta-exercise from novel prompting hybrids to advanced HAC theory.
 
 ## Framework Evolution Overview
 The framework progresses in four stages (aligned with E-CEI/X-CII models):
