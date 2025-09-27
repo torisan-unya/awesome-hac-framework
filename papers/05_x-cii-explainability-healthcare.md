@@ -1,6 +1,6 @@
 # The Potential of the Extended Collaborative Intelligence Index (X-CII) for Enhancing Explainability in Healthcare
 
-**Author:** Torisan Unya [@torisan_unya]  
+**Author:** Torisan Unya (ORCID: https://orcid.org/0009-0004-7067-9765)
 
 **Affiliation:** Independent Researcher  
 
