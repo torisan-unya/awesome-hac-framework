@@ -34,7 +34,7 @@ flowchart LR
     A[Stage 1: Theoretical\nE-CEI Foundations] --> B[Stage 2: Extension\nX-CII with Dynamics]
     B --> C[Stage 3: Simulation\nMonte Carlo Robustness]
     C --> D[Stage 4: Formalization\nAxiomatic X-CII]
-    D --> E[Stage 5: Empirical Pilots\nReal-World Validation & Domain Applications (e.g., Healthcare)]
+    D --> E[Stage 5: Empirical Pilots\nReal-World Validation]
     style A fill:#f9f,stroke:#333
     style E fill:#bbf,stroke:#333
 ```
@@ -43,7 +43,7 @@ flowchart LR
 - **Stage 2 (Extension & Hypothetical)**: Evolves to X-CII with dynamic components (e.g., AIF, RBI) and simulated 12-month validation (Relative X-CII up to ~150%; Core ≥0.75 in 92% of runs). (Cross-ref: Builds on Stage 1; informs Stages 3-5. **Real analogs:** Bansal et al. (Nature Human Behaviour 2024); Gao et al. (arXiv:2505.22477v2, 2025) on HCHAC.)
 - **Stage 3 (Simulation Validation)**: Applies Monte Carlo (10,000 replicates) for robustness under uncertainty, reporting median Relative X-CII of 112% (5-95th percentile: 104-120%) and sensitivity to shifts (AUROC~0.72-0.85). Includes group-adaptive thresholds and win rates. (Cross-ref: Extends Stage 2; provides data for Stages 4-5. **Real analogs:** Farquhar et al. (Nature 2024) semantic entropy; Zhang et al. (arXiv:2502.04528v1, 2025) on group-adaptive thresholds.)
 - **Stage 4 (Formalization & Synthetic)**: Defines X-CII axiomatically (Box-Cox average of Q, E, S; λ=0.25) with synthetic Monte Carlo evaluation, showing robustness (median Relative X-CII 108.7% [95% CI: 107.2-110.1%]; Core ≥0.75 in all runs). Integrates fairness diagnostics (EOD L_inf median 0.02; calibration gap proxy median 0.40) and human-anchored S variants. (Cross-ref: Integrates Stages 1-3 with axiomatic rigor. **Real analogs:** Fragiadakis et al. (2024) HAIC framework; Vats et al. (arXiv:2403.04931v4, 2025) on large foundation models in HAC.)
-- **Stage 5 (Empirical Pilots & Domain Applications)**: **Proposes real-world pilots (N=500) for λ tuning and validation, with sensitivity to AUROC shifts (0.70-0.85). Includes agent-based simulations for phase transitions and domain-specific applications (e.g., Healthcare AI explainability with +5% d' uplift, median Relative X-CII 102.963%).** (Cross-ref: Builds on Stages 1-4. **Real analogs:** Bansal et al. (2024) underperformance risks; arXiv:2509.12345 (2025) on adaptive HAC thresholds.)
+- **Stage 5 (Empirical Pilots)**: Proposes real-world pilots (N=500) for λ tuning and validation, with sensitivity to AUROC shifts (0.70-0.85). Includes agent-based simulations for phase transitions and domain-specific applications (e.g., Healthcare AI explainability with +5% d' uplift, median Relative X-CII 102.963%). (Cross-ref: Builds on Stages 1-4. **Real analogs:** Bansal et al. (2024) underperformance risks; arXiv:2509.12345 (2025) on adaptive HAC thresholds.)
 
 **X-CII Core values across stages: Human-only mean ~0.77; AI-only ~0.75; Collab ~0.83 (synthetic estimates).** Sensitivity to domain shifts: Under AUROC=0.70, Relative X-CII drops to 104.8% with 94% win rate vs. baselines. Fairness diagnostics: EOD L_inf median 0.015; calibration gap proxy median 0.35. **New in Paper 5: Application to Healthcare AI with SDT-based explainability uplift.**
 
@@ -65,7 +65,7 @@ flowchart LR
 
 ## Recommended Reading Order
 
-To grasp the framework's evolution ( theory → extension → validation → formalization → pilots & applications ), read in this order:
+To grasp the framework's evolution ( theory → extension → validation → formalization → pilots ), read in this order:
 
 1. **[01_theoretical-framework.md](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/blob/main/academic-paper/01_theoretical-framework.md)**: Establishes E-CEI foundations.
 2. **[02_extended-framework-validation.md](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/blob/main/academic-paper/02_extended-framework-validation.md)**: Extends to X-CII with hypothetical scenarios.
