@@ -4,12 +4,12 @@
 
 **Elevator Pitch (In Plain English):** Can humans and AI team up to be smarter than either alone? This project uses fictional "academic papers" to build and test a framework (X-CII) that measures and boosts this teamwork, like checking if 1+1 equals more than 2 in creativity and problem-solving.
 
-**Description:** **This awesome list targets AI researchers, sci-fi enthusiasts, designers, and anyone interested in human-AI futures.** It curates **fictional** resources, papers, tools, and insights for advancing Human-AI Collaborative Intelligence (HAC). Drawing from the meta-exercise in fictional academic artifacts, it traces the evolution of frameworks like E-CEI and X-CII, emphasizing synergistic evaluation, ethical alignment, uncertainty handling (e.g., hallucination detection with semantic entropy baselines, AUROC ~0.75-0.85), axiomatic rigor, and fairness diagnostics. **All components—authors, affiliations, data, results, references, and journal names in the fictional papers—are fabricated for illustrative purposes. No real-world empirical claims are made.** For the original archived repository and full context, see [AI-Novel-Prompt-Hybrid](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid). This is a meta-project blending fiction with real research inspiration; currently, the 4th paper is under moderation on TechRxiv, with others being refined sequentially for formal preprint submission.
+**Description:** **This awesome list targets AI researchers, sci-fi enthusiasts, designers, and anyone interested in human-AI futures.** It curates **fictional** resources, papers, tools, and insights for advancing Human-AI Collaborative Intelligence (HAC). Drawing from the meta-exercise in fictional academic artifacts, it traces the evolution of frameworks like E-CEI and X-CII, emphasizing synergistic evaluation, ethical alignment, uncertainty handling (e.g., hallucination detection with semantic entropy baselines, AUROC ~0.75-0.85), axiomatic rigor, and fairness diagnostics. **All components—authors, affiliations, data, results, references, and journal names in the fictional papers—are fabricated for illustrative purposes. No real-world empirical claims are made.** For the original archived repository and full context, see [AI-Novel-Prompt-Hybrid](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid). This is a meta-project blending fiction with real research inspiration; currently, **Paper 4 is under moderation on TechRxiv, and Paper 5 has entered moderation on TechRxiv as of September 29, 2025**, with others being refined sequentially for formal preprint submission.
 
 **Notice: Original Repository Archived**  
 The source repository has been frozen for further development. Historical files remain available there for reference. This new awesome list continues the exploration of HAC frameworks, including X-CII developments, with updates on simulation-based robustness and synthetic evaluations. **Note: Considering AI models like Gemini may have knowledge cutoffs (e.g., up to early 2025 per latest info), we encourage checking real-time updates via linked arXiv for analogs. arXiv links are placeholders; verify real analogs as some may correspond to actual papers with different content.**
 
-**Updated as of September 27, 2025 (Version 2.7):** Refined structure for readability; consolidated metrics (Core X-CII: Human-only ~0.77, AI-only ~0.75, Collab ~0.83); enhanced fairness diagnostics (EOD L_inf median 0.015; calibration gap proxy median 0.35); integrated group-adaptive thresholds (AUROC~0.70: median Relative X-CII 104.8%, win rate 94%; Core ≥0.75 in 99% of runs). Monte Carlo sensitivity (10,000 replicates): median Relative X-CII 107.5% [95% CI: 106.0-109.0%]; 5-95th percentile Relative X-CII 103.5-111.5%. Added axiomatic λ variations and fairness optimizations. **New: Extended Stage 5 for Empirical Pilots; updated real analogs with 2025 arXiv searches (e.g., arXiv:2509.12345 on adaptive HAC thresholds). Paper 4 under TechRxiv moderation; others to follow as preprints after refinement.**
+**Updated as of September 29, 2025 (Version 2.8):** Refined structure for readability; consolidated metrics (Core X-CII: Human-only ~0.77, AI-only ~0.75, Collab ~0.83); enhanced fairness diagnostics (EOD L_inf median 0.015; calibration gap proxy median 0.35); integrated group-adaptive thresholds (AUROC~0.70: median Relative X-CII 104.8%, win rate 94%; Core ≥0.75 in 99% of runs). Monte Carlo sensitivity (10,000 replicates): median Relative X-CII 107.5% [95% CI: 106.0-109.0%]; 5-95th percentile Relative X-CII 103.5-111.5%. Added axiomatic λ variations and fairness optimizations. **New: Added Paper 5 on X-CII for explainability in Healthcare AI (under TechRxiv moderation); extended Stage 5 for Empirical Pilots; updated real analogs with 2025 arXiv searches (e.g., arXiv:2509.12345 on adaptive HAC thresholds). Paper 4 under TechRxiv moderation; Paper 5 newly entered moderation; others to follow as preprints after refinement.**
 
 <details>
 <summary>Key Terms Glossary</summary>
@@ -34,7 +34,7 @@ flowchart LR
     A[Stage 1: Theoretical\nE-CEI Foundations] --> B[Stage 2: Extension\nX-CII with Dynamics]
     B --> C[Stage 3: Simulation\nMonte Carlo Robustness]
     C --> D[Stage 4: Formalization\nAxiomatic X-CII]
-    D --> E[Stage 5: Empirical Pilots\nReal-World Validation]
+    D --> E[Stage 5: Empirical Pilots\nReal-World Validation & Domain Applications (e.g., Healthcare)]
     style A fill:#f9f,stroke:#333
     style E fill:#bbf,stroke:#333
 ```
@@ -43,33 +43,35 @@ flowchart LR
 - **Stage 2 (Extension & Hypothetical)**: Evolves to X-CII with dynamic components (e.g., AIF, RBI) and simulated 12-month validation (Relative X-CII up to ~150%; Core ≥0.75 in 92% of runs). (Cross-ref: Builds on Stage 1; informs Stages 3-5. **Real analogs:** Bansal et al. (Nature Human Behaviour 2024); Gao et al. (arXiv:2505.22477v2, 2025) on HCHAC.)
 - **Stage 3 (Simulation Validation)**: Applies Monte Carlo (10,000 replicates) for robustness under uncertainty, reporting median Relative X-CII of 112% (5-95th percentile: 104-120%) and sensitivity to shifts (AUROC~0.72-0.85). Includes group-adaptive thresholds and win rates. (Cross-ref: Extends Stage 2; provides data for Stages 4-5. **Real analogs:** Farquhar et al. (Nature 2024) semantic entropy; Zhang et al. (arXiv:2502.04528v1, 2025) on group-adaptive thresholds.)
 - **Stage 4 (Formalization & Synthetic)**: Defines X-CII axiomatically (Box-Cox average of Q, E, S; λ=0.25) with synthetic Monte Carlo evaluation, showing robustness (median Relative X-CII 108.7% [95% CI: 107.2-110.1%]; Core ≥0.75 in all runs). Integrates fairness diagnostics (EOD L_inf median 0.02; calibration gap proxy median 0.40) and human-anchored S variants. (Cross-ref: Integrates Stages 1-3 with axiomatic rigor. **Real analogs:** Fragiadakis et al. (2024) HAIC framework; Vats et al. (arXiv:2403.04931v4, 2025) on large foundation models in HAC.)
-- **Stage 5 (Empirical Pilots)**: Proposes real-world pilots (N=500) for λ tuning and validation, with sensitivity to AUROC shifts (0.70-0.85). Includes agent-based simulations for phase transitions. (Cross-ref: Builds on Stages 1-4. **Real analogs:** Bansal et al. (2024) underperformance risks; arXiv:2509.12345 (2025) on adaptive HAC thresholds.)
+- **Stage 5 (Empirical Pilots & Domain Applications)**: **Proposes real-world pilots (N=500) for λ tuning and validation, with sensitivity to AUROC shifts (0.70-0.85). Includes agent-based simulations for phase transitions and domain-specific applications (e.g., Healthcare AI explainability with +5% d' uplift, median Relative X-CII 102.963%).** (Cross-ref: Builds on Stages 1-4. **Real analogs:** Bansal et al. (2024) underperformance risks; arXiv:2509.12345 (2025) on adaptive HAC thresholds.)
 
-**X-CII Core values across stages: Human-only mean ~0.77; AI-only ~0.75; Collab ~0.83 (synthetic estimates).** Sensitivity to domain shifts: Under AUROC=0.70, Relative X-CII drops to 104.8% with 94% win rate vs. baselines. Fairness diagnostics ensure balanced representation (e.g., EOD L_inf <0.05 in 96% of runs).
+**X-CII Core values across stages: Human-only mean ~0.77; AI-only ~0.75; Collab ~0.83 (synthetic estimates).** Sensitivity to domain shifts: Under AUROC=0.70, Relative X-CII drops to 104.8% with 94% win rate vs. baselines. Fairness diagnostics: EOD L_inf median 0.015; calibration gap proxy median 0.35. **New in Paper 5: Application to Healthcare AI with SDT-based explainability uplift.**
 
 ---
 
-## Core Framework Papers (Fictional Artifacts)
+## Curated Fictional Papers List
 
-| # | Filename | Title | Summary | Key Metrics & Innovations | LaTeX Source | Status |
-|---|----------|-------|---------|---------------------------|--------------|--------|
-| 1 | [01_theoretical-framework.md](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/blob/main/academic-paper/01_theoretical-framework.md) | *Human-AI Creative Collaboration: A Theoretical Framework for Synergistic Innovation* | Proposes E-CEI as a foundational metric for human-AI synergy, with four-stage model and ethical principles. Trust coefficient (T) and reliability factor (R) introduced. | E-CEI = [(O × T × R) / (H + A)] × 100; Four-stage model (Ideation-Integration); Ethical alignment principles. | N/A | Under refinement; sequential preprint planned |
-| 2 | [02_extended-framework-validation.md](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/blob/main/academic-paper/02_extended-framework-validation.md) | *Simulated Extension of Human-AI Collaborative Intelligence Framework: Hypothetical Validation and Implementation Scenarios* | Extends to X-CII with dynamic aggregation; simulates 12-month study (N=200) showing Relative X-CII up to ~150%; includes protocols and ethical updates. Incorporates AIF and RBI for role adaptation. | Core X-CII = (Q' × E' × S')^{1/3}; Relative X-CII up to 150%; Dynamic components (AIF, RBI, TCO). | N/A | Under refinement; sequential preprint planned |
+| # | MD File | Title | Description | Key Metrics | LaTeX File | Status |
+|---|---------|-------|-------------|-------------|------------|--------|
+| 1 | [01_theoretical-framework.md](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/blob/main/academic-paper/01_theoretical-framework.md) | *Human-AI Creative Collaboration: A Theoretical Framework for Synergistic Innovation* | Establishes E-CEI with trust-weighted metrics; four-stage model. | E-CEI = [(O × T × R) / (H + A)] × 100; SC-R = [(O × T) - max(H, A)] / max(H, A) | [latex/01_theoretical-framework.tex](latex/01_theoretical-framework.tex) | Under refinement; sequential preprint planned |
+| 2 | [02_extended-framework-validation.md](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/blob/main/academic-paper/02_extended-framework-validation.md) | *Simulated Extension of Human-AI Collaborative Intelligence Framework: Hypothetical Validation and Implementation Scenarios* | Extends to X-CII with dynamic components (AIF, RBI); 12-month hypothetical validation. | Relative X-CII up to ~150%; Core ≥0.75 in 92% of runs; AUROC 0.70-0.85. | [latex/02_extended-framework-validation.tex](latex/02_extended-framework-validation.tex) | Under refinement; sequential preprint planned |
 | 3 | [03_xc-ii_validation_simulation.md](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/blob/main/academic-paper/03_xc-ii_validation_simulation.md) | *Monte Carlo Simulation for Validating the Extended Collaborative Intelligence Framework: Robustness Under Uncertainty and Domain-Specific Projections [Simulation/Fictional]* | Validates X-CII via Monte Carlo (10,000 replicates); median Relative X-CII 112% vs. baselines; addresses shifts (AUROC~0.72-0.85). Builds on Paper 2's extensions. Includes group-adaptive thresholds and win rates. | Median Relative X-CII 112% (5-95th: 104-120%); Core ≥0.75 in 92%; AUROC sensitivity; Group-adaptive τ*. | N/A | Under refinement; sequential preprint planned |
 | 4 | [04_x-cii_formalization_and_synthetic_evaluation.md](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/blob/main/academic-paper/04_x-cii_formalization_and_synthetic_evaluation.md) | *A Formalization of the Extended Collaborative Intelligence Framework (X-CII): Definition and Synthetic Evaluation* | Formalizes X-CII axiomatically (Box-Cox; monotonicity, invariance); synthetic Monte Carlo (10,000 replicates) shows median Relative X-CII 108.7% [95% CI: 107.2-110.1%]. Integrates simulations from Paper 3. Adds fairness and calibration diagnostics. | Box-Cox avg (λ=0.25); Median Relative X-CII 108.7%; EOD L_inf 0.02; Calibration gap 0.40; Raw S >1 proportion. | [latex/04_x-cii_formalization_and_synthetic_evaluation.tex](latex/04_x-cii_formalization_and_synthetic_evaluation.tex) | Under TechRxiv moderation |
+| 5 | [05_x-cii-explainability-healthcare.md](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/blob/main/academic-paper/05_x-cii-explainability-healthcare.md) | *Enhancing Explainability in Healthcare AI through the Extended Collaborative Intelligence Index (X-CII): A Synthetic Evaluation Framework* | Applies X-CII to Healthcare AI explainability; isolates +5% d' uplift via SDT; synthetic Monte Carlo (10,000 replicates) with median Relative X-CII 102.963% [IQR: 101.236-104.560%]. Aligns with EU AI Act and IMDRF; sensitivity analyses on λ, η, ρ. | Median Relative X-CII 102.963%; Win rate ~89.7%; Domain shift (AUC=0.72): 102.818%, win rate 78.5%; Safety normalization: 1 - L / L_worst. | [latex/05_x-cii-explainability-healthcare.tex](latex/05_x-cii-explainability-healthcare.tex) | Entered TechRxiv moderation as of September 29, 2025 |
 
-*Cross-References*: Paper 1 forms basis for all; Paper 2 builds on 1 and informs 3-4; Paper 3 extends 2 and provides data for 4; Paper 4 integrates 1-3 with axiomatic rigor.
+*Cross-References*: Paper 1 forms basis for all; Paper 2 builds on 1 and informs 3-5; Paper 3 extends 2 and provides data for 4-5; Paper 4 integrates 1-3 with axiomatic rigor; Paper 5 applies 1-4 to Healthcare domain with explainability focus.
 
 ---
 
 ## Recommended Reading Order
 
-To grasp the framework's evolution ( theory → extension → validation → formalization → pilots ), read in this order:
+To grasp the framework's evolution ( theory → extension → validation → formalization → pilots & applications ), read in this order:
 
 1. **[01_theoretical-framework.md](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/blob/main/academic-paper/01_theoretical-framework.md)**: Establishes E-CEI foundations.
 2. **[02_extended-framework-validation.md](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/blob/main/academic-paper/02_extended-framework-validation.md)**: Extends to X-CII with hypothetical scenarios.
 3. **[03_xc-ii_validation_simulation.md](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/blob/main/academic-paper/03_xc-ii_validation_simulation.md)**: Tests robustness via simulations.
 4. **[04_x-cii_formalization_and_synthetic_evaluation.md](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/blob/main/academic-paper/04_x-cii_formalization_and_synthetic_evaluation.md)**: Formalizes X-CII with axioms and synthetic evaluation.
+5. **[05_x-cii-explainability-healthcare.md](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid/blob/main/academic-paper/05_x-cii-explainability-healthcare.md)**: Applies X-CII to Healthcare AI explainability.
 
 ---
 
@@ -84,17 +86,18 @@ To grasp the framework's evolution ( theory → extension → validation → for
   - Monte Carlo for Human-AI Synergy (arXiv:2507.01062, 2025): Simulations for student success with GenAI.
   - Adaptive HAC Thresholds (arXiv:2509.12345, 2025): Extensions for multi-agent fairness.
   - Additional Surveys: Human-AI Collaboration with Large Foundation Models (arXiv:2403.04931 v4, 2025).
+  - **New: Healthcare AI Explainability (e.g., arXiv:2509.11234, 2025 placeholder; real analog: Giorgetti et al. 2025, Frontiers in Medicine).**
 
 - **Tools & Repositories**:
   - [xAI Grok API](https://x.ai/api): For accessing Grok models in collaborative setups.
   - [IRIS: Interactive Research Ideation System](https://arxiv.org/abs/2504.16728) (2025 placeholder): MCTS for ideation.
   - Simulation Code: Python snippets in Papers 3 & 4 (NumPy/SciPy-based Monte Carlo; MIT License).
   - Related Repos: [AI-Novel-Prompt-Hybrid](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid) (original archived source).
-  - **New: LaTeX Sources**: For formal rendering of papers, see the [latex/](latex/) directory. To compile, copy the .tex files to your local environment or use Overleaf for PDF generation. Pre-compiled PDFs are available in [latex/pdfs/](latex/pdfs/) for convenience. Preprint plans: Paper 4 on TechRxiv (under moderation); others refined for sequential submission.
+  - **New: LaTeX Sources**: For formal rendering of papers, see the [latex/](latex/) directory. To compile, copy the .tex files to your local environment or use Overleaf for PDF generation. Pre-compiled PDFs are available in [latex/pdfs/](latex/pdfs/) for convenience. **Added: latex/05_x-cii-explainability-healthcare.tex.** Preprint plans: Paper 4 under TechRxiv moderation; **Paper 5 entered TechRxiv moderation;** others refined for sequential submission.
 
 - **Communities & Discussions**:
   - Follow [@torisan_unya on X](https://x.com/torisan_unya) for updates on prompting frameworks.
-  - Contribute via GitHub: Issues/PRs welcome for Monte Carlo refinements, new fairness metrics, or domain extensions (e.g., education, finance). Potential integration with tools like IRIS or feedback-aware MCTS.
+  - Contribute via GitHub: Issues/PRs welcome for Monte Carlo refinements, new fairness metrics, or domain extensions (e.g., education, finance, **healthcare**). Potential integration with tools like IRIS or feedback-aware MCTS.
 
 ---
 
@@ -102,17 +105,17 @@ To grasp the framework's evolution ( theory → extension → validation → for
 
 - **Axiomatic Enhancements**: Explore λ variations (e.g., λ=0.1 for stronger imbalance penalties; λ=0.5 for milder) and weighted Box-Cox for domain-specific adaptations (e.g., healthcare: higher S weight). Integrate advanced uncertainty quantification (e.g., epistemic uncertainty via Penalty Ensemble Method). **New: Propose empirical pilots with N=500 for λ tuning.**
 - **Fairness Integration**: Incorporate group-adaptive EOD optimization and real-time calibration gap monitoring. Add diagnostics like TPR-FPR differences across stratified groups. **New: Simulate phase transitions in multi-agent networks.**
-- **Empirical Pilots**: Propose real-world validation studies (N=200, 12-month longitudinal) to test synthetic estimates, with sensitivity to AUROC shifts (0.72-0.85). Include agent-based simulations for phase transitions in AI-human networks. **Preprint Progress: Paper 4 under TechRxiv moderation; subsequent papers to be refined and submitted sequentially to platforms like arXiv or TechRxiv.**
-- **Community Contributions**: Welcome PRs for Monte Carlo code refinements, new fairness metrics, or domain extensions (e.g., education, finance). Potential integration with emerging tools like IRIS for interactive ideation or feedback-aware MCTS for efficient collaboration loops.
-- **New: Integrate Penalty Ensemble Method for epistemic uncertainty (arXiv:2506.14594, 2025 placeholder; real analog: Farquhar et al. 2024 extensions). Propose pilots with N=500 for λ tuning, referencing Bansal et al. (2024) underperformance risks.**
+- **Empirical Pilots**: Propose real-world validation studies (N=200, 12-month longitudinal) to test synthetic estimates, with sensitivity to AUROC shifts (0.72-0.85). Include agent-based simulations for phase transitions in AI-human networks. **Preprint Progress: Paper 4 under TechRxiv moderation; Paper 5 entered moderation; subsequent papers to be refined and submitted sequentially to platforms like arXiv or TechRxiv.**
+- **Community Contributions**: Welcome PRs for Monte Carlo code refinements, new fairness metrics, or domain extensions (e.g., education, finance, **healthcare AI explainability**). Potential integration with emerging tools like IRIS for interactive ideation or feedback-aware MCTS for efficient collaboration loops.
+- **New: Integrate Penalty Ensemble Method for epistemic uncertainty (arXiv:2506.14594, 2025 placeholder; real analog: Farquhar et al. 2024 extensions). Propose pilots with N=500 for λ tuning, referencing Bansal et al. (2024) underperformance risks. **Extend to Healthcare: Incorporate SDT uplift for explainability in high-risk AI (e.g., EU AI Act compliance).****
 
 ---
 
 ## Keywords
 
 **Core Concepts:** Human-AI Collaboration, Collaborative Intelligence, Synergistic Innovation, E-CEI, X-CII.  
-**Methods:** Theoretical Framework, Hypothetical Validation, Monte Carlo Simulation, Synthetic Evaluation, Box-Cox Aggregation. (New: Axiomatic Properties, Group-Adaptive Threshold Optimization, Fairness Diagnostics, Calibration Gap Proxy.)  
-**Applications:** Creative AI, AI Ethics, Multi-Agent Systems.  
+**Methods:** Theoretical Framework, Hypothetical Validation, Monte Carlo Simulation, Synthetic Evaluation, Box-Cox Aggregation. (New: Axiomatic Properties, Group-Adaptive Threshold Optimization, Fairness Diagnostics, Calibration Gap Proxy, **SDT-based Explainability Uplift**.)  
+**Applications:** Creative AI, AI Ethics, Multi-Agent Systems, **Healthcare AI**.  
 **Meta-Aspects:** Fictional Research, Meta-Project, AI Prompting.
 
 ---
@@ -120,5 +123,3 @@ To grasp the framework's evolution ( theory → extension → validation → for
 ## License
 
 This work is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
-
-
