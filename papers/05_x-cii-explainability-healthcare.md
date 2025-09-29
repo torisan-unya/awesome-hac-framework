@@ -1,97 +1,67 @@
-# The Potential of the Extended Collaborative Intelligence Index (X-CII) for Enhancing Explainability in Healthcare
+# Enhancing Explainability in Healthcare AI through the Extended Collaborative Intelligence Index (X-CII): A Synthetic Evaluation Framework
 
-**Author:** Torisan Unya (ORCID: https://orcid.org/0009-0004-7067-9765)
-
+**Author:** Torisan Unya (ORCID: https://orcid.org/0009-0004-7067-9765)  
 **Affiliation:** Independent Researcher  
-
-**Keywords:** Human-AI Collaboration, Collaborative Intelligence Metrics, Explainable AI, Healthcare Applications, X-CII Framework, Synthetic Evaluation  
-
+**Keywords:** Human-AI Collaboration, Collaborative Intelligence Metrics, Explainable AI, Healthcare Applications, X-CII Framework, Synthetic Evaluation, Regulatory Compliance  
 **Categories:** cs.HC; cs.AI; cs.LG; stat.ML  
-
-**Submission Note:** v10: Updated with verified references from September 23, 2025; refined numerical reporting based on re-run Monte Carlo simulations (median Relative X-CII 104.95% [95% CI: 104.92–104.98%]; Core X-CII ≥0.75 in 100.00% of runs); enhanced fairness diagnostics; no changes to synthetic nature (September 23, 2025).  
-
-No empirical claims; synthetic evaluation only, with real analogs referenced. Reproducible code is provided in Appendix A; all scripts used to produce the results are included herein for self-contained reproducibility. The code is licensed under MIT License, with the paper under CC BY-SA 4.0.
-
----
+**Submission Note:** v1: Added dedicated Methods and Results sections for enhanced structure and clarity; recomputed statistics using verified code execution (e.g., baseline median updated to 102.963% to reflect precise floating-point results); incorporated recent XAI advancements from semantic search; confirmed EU AI Act details with official sources. Verified references as of September 29, 2025. No empirical claims; synthetic evaluation only. Reproducible code provided in Appendix A (requires Python 3.10+, NumPy 1.23+, SciPy 1.10+; execution time approximately 0.5 seconds on standard hardware). Licensed under CC BY-SA 4.0 (paper) and MIT (code).
 
 ## Plain-Language Summary for Clinicians
 
-Imagine you're working with a new AI assistant. It's brilliant, often spotting things you might miss. But sometimes, it makes a recommendation you don't understand. A patient asks, "Why does the AI suggest this treatment?" If you can't answer, can you truly trust it? This is the “black box” problem in medical AI, and it's a critical barrier to safe and reliable patient care.
-
-Our paper introduces a solution: the Extended Collaborative Intelligence Index (X-CII).
-
-Think of X-CII as a "health check" for your human-AI team. It doesn't just measure if the AI is "correct." Instead, it gives you a single, meaningful score based on three things you care about every day:
-
-1. Quality: How accurate is the diagnosis?
-
-2. Efficiency: How much time does it save you?
-
-3. Safety: How well does it avoid critical errors?
-
-Crucially, we've designed X-CII so that the more explainable the AI is, the higher the score gets. Why? Because our simulations show that when an AI can clearly explain its reasoning, it is associated with improvements in your team's overall quality and safety. Explainability isn't just a "nice-to-have" feature; it's a core component of better medicine, as evidenced by recent studies reporting improved task performance in human-AI collaborations when explanations are provided (e.g., Bansal et al., 2024 Nature Human Behaviour on human-AI teams [9]; Fragiadakis et al., 2024 arXiv on evaluating human-AI collaboration [4]).
-
-The bottom line: X-CII provides a way to measure and demand AI that is not just intelligent, but also a transparent, trustworthy partner. As you step into a future where you will inevitably collaborate with AI, this framework is designed to ensure that the technology serves you, your expertise, and most importantly, your patients. Note: This work is conceptual and not intended for direct medical judgment or application.
-
----
+In healthcare, AI tools can help with diagnosis, but their "black box" nature creates risks. If an AI suggests a treatment without a clear reason, how can you confidently explain it to a patient or justify it legally?  
+X-CII is a "report card" for a human-AI team. It grades not just accuracy (Q) or speed (E), but also how well the team works together to make safe, explainable decisions (S). A good AI explanation acts like better teamwork, boosting the team's diagnostic "detection skill" by a simulated 5%. Our simulations showed this led to a typical performance improvement of around 3% for the human-AI team compared to the best individual (human or AI) working alone. In fact, the collaborative team was the better option in around 90% of cases.  
+This approach aligns with new regulations like the EU AI Act¹ and IMDRF guidelines, which require transparency for high-risk medical AI. By measuring the value of an explanation, X-CII helps build trustworthy AI that supports clinicians and meets legal standards. This is a conceptual framework, not for direct clinical use, and should be calibrated to site-specific data in practice.  
+¹Obligations under these regulations are being introduced in stages over the next few years. Check the latest version for updates.
 
 ## Abstract
 
-Human-AI Collaborative Intelligence (HAC) frameworks, such as the Extended Collaborative Intelligence Index (X-CII), offer a formalized approach to evaluating synergistic interactions between humans and AI. This paper explores the potential application of X-CII to enhance explainability in healthcare AI systems, where transparency in diagnostic and treatment decisions is critical for trust, safety, and regulatory compliance (e.g., EU AI Act [11], FDA GMLP [12]). By integrating X-CII's axiomatic components—Quality (Q), Efficiency (E), and Safety (S)—aggregated via the power mean (generalized mean) with exponent λ=0.25 (with sensitivity analyses), we simulate how this metric could quantify and improve the interpretability of AI-assisted medical decisions. We incorporate explainability mechanistically, modeling it as a task- and setup-dependent improvement in detection sensitivity; we conservatively assume +5% to d′ in hallucination models (literature reports strong detection performance (AUROC ~0.75–0.85 [5]); we adopt a conservative +5% d′ modeling assumption). Synthetic Monte Carlo evaluations (10,000 replicates) demonstrate a median Relative X-CII of 104.95% [95% CI: 104.92–104.98%] in explainable AI scenarios vs. baselines, with Core X-CII ≥0.75 in 100.00% of runs. Under domain shifts (e.g., AUROC=0.72 for hallucination detection), the metric maintains robustness, remaining near 104.95% with a 100.00% win rate. Fairness diagnostics (EOD TPR diff median 0.007, FPR diff median 0.014; EOD L_inf median 0.020; group-specific X-CII medians 0.88/0.88) and calibration measures (Brier score ≈0.16; ECE ≈0.01; adaptive ECE ≈0.01) suggest X-CII could support equitable and reliable human-AI teams in healthcare, addressing challenges like trust calibration (Kovesdi et al., 2025 HFES on trust evaluation using signal detection theory [10]) and bias in clinical workflows (Aziz et al., 2024 medRxiv on XAI in CDSS [6]; Al-Dhuhli et al., 2024 Computers & Electrical Engineering on XAI review [7]; Aldughayfiq et al., 2024 arXiv on XAI for medical applications [8]).
-
----
+Human-AI collaboration in healthcare demands explainable AI (XAI) to foster trust, safety, and regulatory compliance, as mandated by the EU AI Act [1] and IMDRF Good Machine Learning Practice (GMLP) [2]. This paper formalizes the Extended Collaborative Intelligence Index (X-CII) to quantify XAI's role in enhancing collaborative performance. X-CII aggregates quality (Q), efficiency (E), and safety (S) via a power mean (λ=0.25), isolating explainability's impact as a +5% uplift to the team's detectability index (d' in Signal Detection Theory, assuming equal-variance Gaussian). In this synthetic study, this uplift is applied only to collaborative d' and reflects explainability’s effect on Safety; Q/E are fixed in baseline to isolate mechanisms. This conservative estimate is derived from literature reporting 5-10% performance gains from XAI integration (ranges vary by task and study quality)¹; for example, an AUC of 0.800 (d'≈1.189) with +5% uplift yields d'≈1.248 and AUC≈0.813 (+1.3 percentage points). Addressing critiques of post-hoc XAI (e.g., Rudin, 2019 [3]), we emphasize X-CII's support for fidelity in explanations, mitigating risks like inappropriate reliance and bias amplification via explicit factors in S.  
+Synthetic Monte Carlo simulations (10,000 replicates) illustrate relative X-CII around 102.963% median (IQR: 101.236–104.560%) vs. the better baseline, contingent on baseline human/AI skill, prevalence, and cost ratios. Revised Safety normalization (1 - L / L_worst) preserves boundedness and comparability; while it ensures consistency, it compresses differences in high-performance regimes. Sensitivity analyses include uplift on team-only (median 102.963%), single-only (102.130%), both (102.959%); λ variations (geometric mean: 103.051%, arithmetic: 102.694%); η (0.6: 95.055%, 0.8: 99.156%, 1.0: 102.963%); ρ (-0.5: 108.659%, 0.5: 99.637%); and domain shifts with mild single-agent F/R adjustments (AUC=0.72: median 102.818%, win rate 78.5%). Under domain shifts (AUC=0.72, applied uniformly), medians ~102.818% (win rate ~78.5%). Baseline win rate (relative X-CII >100%) is approximately 89.7% under independent assumptions (ρ=0). Results are illustrative, setting-dependent, and should not be generalized without empirical validation. We integrate multimodal foundation models (MFMs) and generative AI challenges conceptually, using uncertainty quantification (e.g., semantic entropy, with reported AUCs of ~0.75-0.85 across datasets as representative examples [6]) to address confabulation risks (conceptually referenced, not implemented in code). This framework supports implementation toward compliance in human-AI teams, but does not itself establish conformity.  
+¹For example, systematic reviews report 5–10% improvements in diagnostic tasks [16], and experimental studies of human–AI interaction similarly show performance gains in the 5–10% range [17].
 
 ## Introduction
 
-The integration of AI into healthcare promises improved diagnostics and treatment planning but faces significant barriers due to opacity in decision-making processes. Explainable AI (XAI) addresses this by providing interpretable insights into model predictions, fostering trust and enabling clinical adoption (Aziz et al., 2024 medRxiv: Systematic Review of Clinical Decision Support Systems [6]). However, evaluating the impact of XAI on human-AI collaboration remains challenging, with existing metrics often failing to capture synergistic effects (Fragiadakis et al., 2024 arXiv: Evaluating Human-AI Collaboration [4]). This paper proposes the Extended Collaborative Intelligence Index (X-CII) as a composite metric to assess how XAI enhances collaborative performance in healthcare. See also Rudin (2019) [1] for arguments on interpretability; surveys on human-AI collaboration with large foundation models and multimodal foundation models for clinical prediction [2,3]. Note: This work is conceptual and not intended for direct medical judgment or application.
+AI integration in healthcare enhances diagnostics and treatment but faces opacity challenges, risking trust erosion and non-compliance with regulations like the EU AI Act (Reg. (EU) 2024/1689; published in Official Journal L 206 on July 12, 2024; entered into force on August 1, 2024; key obligations phased: prohibitions February 2, 2025; General Purpose AI (GPAI) August 2, 2025; high-risk August 2, 2027) [1] and IMDRF GMLP [2].¹ XAI mitigates this by providing interpretable insights, enabling clinicians to understand AI decisions and justify them to patients or regulators. This paper extends the Collaborative Intelligence Index (CII) to X-CII, incorporating XAI's impact on team performance via Signal Detection Theory (SDT) metrics [13–15, 18]. We focus on synthetic evaluation to isolate mechanisms, assuming equal-variance Gaussian noise and conservative +5% uplift to collaborative d' from XAI, derived from literature reviews and studies reporting 5–10% gains in task performance [16,17]. This uplift models improved detectability through better fidelity and calibrated reliance, reducing errors like over-reliance on flawed explanations [3,17].  
+The framework addresses key XAI challenges: post-hoc vs. intrinsic interpretability [3], multimodal integration, and uncertainty quantification [6,7]. X-CII quantifies these through S (incorporating fidelity F and reliance R), while maintaining fixed Q/E in baselines. We demonstrate via synthetic Monte Carlo that XAI-induced uplifts yield consistent collaborative advantages, though domain shifts compress benefits. This work complements recent XAI reviews [8–11] and SDT applications [13], providing a reproducible metric for high-risk AI compliance. Limitations include synthetic assumptions; future work should adapt and calibrate to real datasets.  
+¹Specific obligations are phased in over 36 months; prohibitions after 6 months, GPAI after 12, and high-risk systems after 24-36 months. See CELEX: 32024R1689 for details.
 
-X-CII builds on axiomatic principles from human-AI collaboration frameworks (Bansal et al., 2024 Nature Human Behaviour: When combinations of humans and AI are useful [9]), incorporating Quality (Q), Efficiency (E), and Safety (S) via a power mean aggregation. We model explainability as an uplift to fidelity in Q and sensitivity in S, drawing from signal detection theory (SDT) for hallucination detection (Farquhar et al., 2024 Nature: Detecting hallucinations using semantic entropy [5]). Synthetic evaluations demonstrate X-CII's robustness, providing a self-contained framework for future empirical studies.
+## Methods
 
----
+### Synthetic Simulation Setup
 
-## The X-CII Framework
+We employ Monte Carlo simulations (10,000 replicates) to evaluate X-CII robustness under parameterized uncertainty. Parameters are drawn from literature-informed priors: AUC ~ Uniform(0.75,0.85) (converted to d' via inverse normal: d' = √2 · Φ⁻¹(AUC)); π (prevalence) ~ Beta(6,14) for moderate imbalance; c_FN ~ Uniform(2,5), c_FP ~ Uniform(0.5,2) for asymmetric costs [13,18]. Q and E are fixed at 0.75 in baselines to isolate S effects. Based on prior studies [16,17], uplift is assumed at +5%, though this varies by task; ρ=0 baseline (sensitivity ±0.5), η=1.0 baseline (sensitivity 0.6-0.8). These assumptions aim to illustrate model behavior under plausible parameters.  
+Team d' is calculated using a Mahalanobis distance generalization; in our implementation this reduces to the correlated Gaussian formulation (see Appendix A for code; ρ=0 baseline, sensitivity ±0.5; η=1.0 baseline, sensitivity 0.6-0.8). XAI uplift (+5%) is applied multiplicatively to d_team (team-only baseline) or variants (single-only, both).  
+Expected loss L is minimized under SDT: L = c_FN · π · (1 - True Positive Rate (TPR)) + c_FP · (1 - π) · False Positive Rate (FPR), with optimal threshold τ* = 0.5 d' + log((c_FP(1-π))/(c_FN π)) / d' (equal-variance Gaussian). Safety S = 1 - L / L_worst, scaled by (α + (1-α)F)(1-R) (α=0.5; F=1.0 baseline human/AI, 0.95 collab; R=0.0 baseline human/AI, 0.05 collab; mild adjustments under shifts).  
+X-CII = [(Q^λ + E^λ + S^λ)/3]^(1/λ) (λ=0.25; geometric λ→0, arithmetic λ=1 sensitivities). Relative X-CII = 100 · X-CII_collab / max(X-CII_human, X-CII_ai). Domain shifts: AUC=0.72 fixed, F/R adjusted (human/AI: F=0.98, R=0.02; collab: F=0.92, R=0.08). Seed=42 for reproducibility.
 
-### Core Components
-X-CII aggregates normalized Q, E, and S using the power mean:
+### Statistical Analysis
 
-\[
-\text{Core X-CII} = \left( \frac{Q^\lambda + E^\lambda + S^\lambda}{3} \right)^{1/\lambda}
-\]
+Medians/IQRs via NumPy percentiles; win rates as proportion relative >100%. Sensitivities vary one parameter at a time. No hypothesis testing; illustrative only.
 
-with λ=0.25 (default; sensitivity to λ=0 and λ=1 tested). Components are normalized to [0,1] using domain-specific benchmarks (e.g., Q via robust z-score to sigmoid; E as (max - value)/(max - min) for time/cost; S via expected loss minimization).
+## Results
 
-- **Quality (Q)**: Measures diagnostic accuracy, uplifted by explainability (+5% fidelity in simulations).
-- **Efficiency (E)**: Quantifies time/cost savings.
-- **Safety (S)**: Assesses error avoidance via SDT, with optimal thresholds minimizing expected loss L = c_{FN} \cdot \pi \cdot (1 - TPR) + c_{FP} \cdot (1 - \pi) \cdot FPR.
+Synthetic simulations demonstrate consistent collaborative advantages. Baseline relative X-CII: median 102.963% (IQR: 101.236–104.560%), win rate 89.7%. Table 1 summarizes sensitivities.
 
-Explainability is modeled as improved d' in SDT, enhancing S under uncertainty.
+| Scenario                  | Median Relative X-CII (%) | IQR (%)          | Win Rate (%) |
+|---------------------------|---------------------------|------------------|--------------|
+| Baseline (team uplift)    | 102.963                   | 101.236–104.560  | 89.7         |
+| Uplift single-only        | 102.130                   | 100.682–103.492  | 85.4         |
+| Uplift both               | 102.959                   | 101.302–104.510  | 90.5         |
+| λ=0 (geometric)           | 103.051                   | 101.324–104.648  | 89.7         |
+| λ=1 (arithmetic)          | 102.694                   | 100.967–104.291  | 89.7         |
+| η=0.6                     | 95.055                    | 94.093–95.951    | 0.0          |
+| η=0.8                     | 99.156                    | 98.439–99.980    | 24.6         |
+| ρ=-0.5                    | 108.659                   | 106.933–110.481  | 99.2         |
+| ρ=0.5                     | 99.637                    | 98.892–100.466   | 37.9         |
+| Shift AUC=0.72            | 102.818                   | 101.091–104.415  | 78.5         |
 
-### Synthetic Evaluation Protocol
-Monte Carlo simulations (n=10,000) use Gaussian assumptions for SDT (equal variance; unequal variance ablation). Priors: AUROC ~ Uniform(0.75,0.85); π ~ Beta(6,14); c_{FN} ~ Uniform(2,5); c_{FP} ~ Uniform(0.5,2).
+*Table 1: Sensitivity analyses of relative X-CII. Win Rate = % of simulations where collaborative > max(human, AI). All values from 10,000 replicates; illustrative only.*
 
-Optimal threshold τ^* minimizes loss under equal-variance Gaussian SDT (closed-form); grid search for unequal variance.
-
-Relative X-CII = 100 \cdot \frac{\text{Core collab}}{\max(\text{Core human}, \text{Core AI})}.
-
-95% CI computed via nonparametric bootstrap (5000 resamples) on medians.
-
-### Results
-Median Relative X-CII: 104.95% [95% CI: 104.92–104.98%]. Core X-CII ≥0.75 in 100.00% of runs. Under AUROC=0.72 domain shift: median 104.95% (win rate 100.00%).
-
-Fairness: EOD TPR diff median 0.007, FPR diff median 0.014; EOD L_inf median 0.020; group-specific X-CII medians 0.88/0.88.
-
-Calibration: Brier score 0.16; ECE 0.01; adaptive ECE 0.01.
-
-Ablations: ΔQ=0.018, ΔE=0.018, ΔS=0.122.
-
-Sensitivity: λ=0: 104.82%; λ=1: 105.33%. Unequal variance: 104.95%.
-
----
+Under shifts, benefits compress but remain positive. Results align with literature [16,17], though synthetic.
 
 ## Discussion
 
-X-CII quantifies XAI's value in HAC, robust to shifts. Compared to existing human-AI evaluation metrics (e.g., as reviewed in [4]), X-CII uniquely aggregates Q/E/S with axiomatic properties, addressing limitations in synergistic evaluation. Limitations: Synthetic; future empirical validation needed. Applications: CDSS optimization, regulatory compliance (e.g., EU AI Act's high-risk requirements [11]; FDA GMLP's transparency principles [12]).
-
----
+X-CII formalizes XAI's value in healthcare human-AI teams, showing modest but consistent uplifts via synthetic evaluation. Integration with MFMs [7] and uncertainty metrics [6] enhances conceptual robustness. The high sensitivity of X-CII to η (team efficiency) and ρ (skill correlation) quantitatively highlights the importance of not only technical performance but also team composition and training in AI implementation. This study is a simulation to verify the theoretical validity and sensitivity of the X-CII framework. The presented values (e.g., collaborative superiority in 90% of cases) indicate potential under the assumed parameters and do not directly predict real clinical outcomes. Future research requires calibration and validation using actual data. The introduction of X-CII should be accompanied by careful ethical and organizational considerations, including redefining clinician roles, responsibilities, and addressing risks like deskilling and automation bias. Limitations include synthetic assumptions (e.g., equal-variance, fixed Q/E); empirical validation is needed. Calibration procedure is outlined in Appendix B. Future work: real-data adaptation, interface factors, and regulatory pilots.
 
 ## Appendix A: Reproducible Code
 
@@ -99,225 +69,124 @@ X-CII quantifies XAI's value in HAC, robust to shifts. Compared to existing huma
 import numpy as np
 from scipy.stats import norm
 
+def auc_to_dprime(auc):
+    return np.sqrt(2) * norm.ppf(np.clip(auc, 1e-6, 1-1e-6))
+
+def team_dprime(d_h, d_ai, rho=0.0, eta=1.0):
+    rho = np.clip(rho, -0.999, 0.999)
+    num = d_h**2 + d_ai**2 - 2 * rho * d_h * d_ai
+    den = np.maximum(1 - rho**2, 1e-12)
+    return eta * np.sqrt(np.maximum(num / den, 0.0))
+
+def expected_loss(d_prime, pi, c_fp, c_fn):
+    mu0 = 0.0
+    mu1 = d_prime
+    delta = np.maximum(mu1 - mu0, 1e-6)
+    log_k = np.log(np.maximum(c_fp, 1e-12) * (1 - pi)) - np.log(np.maximum(c_fn, 1e-12) * np.maximum(pi, 1e-12))
+    tau_star = 0.5 * (mu0 + mu1) + log_k / delta
+    tpr = 1 - norm.cdf(tau_star - mu1)
+    fpr = 1 - norm.cdf(tau_star - mu0)
+    return c_fn * pi * (1 - tpr) + c_fp * (1 - pi) * fpr
+
+def safety(L, pi, c_fp, c_fn, F, R, alpha=0.5):
+    L_allow = (1 - pi) * c_fp
+    L_block = pi * c_fn
+    L_worst = np.maximum(L_allow, L_block)
+    base = 1 - L / np.maximum(L_worst, 1e-6)
+    return np.clip(base * (alpha + (1 - alpha) * F) * (1 - R), 0, 1)
+
 def core_xcii(q, e, s, lam=0.25):
-    eps = 1e-6
-    q = np.maximum(q, eps)
-    e = np.maximum(e, eps)
-    s = np.maximum(s, eps)
-    if lam == 0:
+    q = np.clip(q, 1e-12, 1)
+    e = np.clip(e, 1e-12, 1)
+    s = np.clip(s, 1e-12, 1)
+    if abs(lam) < 1e-12:
         return np.exp((np.log(q) + np.log(e) + np.log(s)) / 3)
     else:
-        return ((q**lam + e**lam + s**lam) / 3)**(1/lam)
+        return ((q**lam + e**lam + s**lam) / 3)**(1 / lam)
 
-rng = np.random.default_rng(42)
-n = 10000
-eps = 1e-6
+def run_scenario(rho=0.0, eta=1.0, lam=0.25, uplift=1.05,
+                 uplift_team=True, uplift_single=False,
+                 auc_fixed=None,
+                 F_h=1.0, R_h=0.0, F_ai=1.0, R_ai=0.0,
+                 F_collab=0.95, R_collab=0.05,
+                 seed=42, n=10000, include_stats=True):
+    rng = np.random.default_rng(seed)
+    auc_h = rng.uniform(0.75, 0.85, n) if auc_fixed is None else np.full(n, auc_fixed)
+    auc_ai = rng.uniform(0.75, 0.85, n) if auc_fixed is None else np.full(n, auc_fixed)
+    d_h = auc_to_dprime(auc_h)
+    d_ai = auc_to_dprime(auc_ai)
+    pi = rng.beta(6, 14, n)
+    c_fn = rng.uniform(2, 5, n)
+    c_fp = rng.uniform(0.5, 2, n)
+    if uplift_single:
+        d_h_eff = d_h * uplift
+        d_ai_eff = d_ai * uplift
+    else:
+        d_h_eff, d_ai_eff = d_h, d_ai
+    d_team = team_dprime(d_h_eff, d_ai_eff, rho=rho, eta=eta)
+    if uplift_team:
+        d_team = d_team * uplift
+    L_h = expected_loss(d_h_eff, pi, c_fp, c_fn)
+    L_ai = expected_loss(d_ai_eff, pi, c_fp, c_fn)
+    L_team = expected_loss(d_team, pi, c_fp, c_fn)
+    alpha = 0.5
+    q = e = np.full(n, 0.75)
+    s_h = safety(L_h, pi, c_fp, c_fn, F_h, R_h, alpha)
+    s_ai = safety(L_ai, pi, c_fp, c_fn, F_ai, R_ai, alpha)
+    s_c = safety(L_team, pi, c_fp, c_fn, F_collab, R_collab, alpha)
+    core_h = core_xcii(q, e, s_h, lam)
+    core_ai = core_xcii(q, e, s_ai, lam)
+    core_c = core_xcii(q, e, s_c, lam)
+    rel = 100 * core_c / np.maximum(core_h, core_ai)
+    median = np.median(rel)
+    iqr = np.percentile(rel, [25, 75])
+    win_rate = (rel > 100).mean() * 100
+    if include_stats:
+        mean = np.mean(rel)
+        std = np.std(rel)
+        return median, iqr, win_rate, mean, std
+    return median, iqr, win_rate
 
-# Priors
-pi = rng.beta(6, 14, n)
-c_FN = rng.uniform(2, 5, n)
-c_FP = rng.uniform(0.5, 2, n)
-log_ratio = np.log((c_FP * (1 - pi)) / (c_FN * pi))  # Corrected for prevalence
-
-auroc = rng.uniform(0.75, 0.85, n)
-d_prime = np.sqrt(2) * norm.ppf(auroc)
-d_prime_xai = d_prime * 1.05  # +5% uplift for explainability
-mu0 = np.zeros(n)
-mu1 = d_prime_xai
-delta = np.maximum(mu1 - mu0, eps)
-tau_star = 0.5 * (mu0 + mu1) + log_ratio / delta
-tpr_xai = 1 - norm.cdf(tau_star - mu1)
-fpr_xai = 1 - norm.cdf(tau_star - mu0)
-
-L_allow = c_FN * pi
-L_block = c_FP * (1 - pi)
-L_worst = np.maximum(L_allow, L_block)
-L_ref_trivial = np.minimum(L_allow, L_block)
-denom = np.maximum(L_worst - L_ref_trivial, eps)
-L_star = c_FN * pi * (1 - tpr_xai) + c_FP * (1 - pi) * fpr_xai
-raw_s_xai = (L_worst - L_star) / denom
-s_xai = np.clip(raw_s_xai, 0, 1)
-
-# Baselines for Q/E/S human and AI
-q_human = rng.uniform(0.70, 0.85, n)
-e_human = rng.uniform(0.70, 0.85, n)
-s_human = np.clip((L_worst - L_allow * 0.9) / denom, 0, 1)  # Human safety placeholder
-core_human = core_xcii(q_human, e_human, s_human, 0.25)
-
-q_ai = q_human * 0.98
-e_ai = e_human * 0.98
-s_ai = np.clip((L_worst - L_block * 0.9) / denom, 0, 1)  # AI safety placeholder
-core_ai = core_xcii(q_ai, e_ai, s_ai, 0.25)
-
-den = np.maximum(core_human, core_ai)
-
-# XAI collab with uplift on Q/E, S from SDT
-q_uplift = rng.normal(0.05, 0.01, n)
-e_uplift = rng.normal(0.05, 0.01, n)
-q_xai = np.clip(q_human + q_uplift, 0, 1)
-e_xai = np.clip(e_human + e_uplift, 0, 1)
-core_collab_xai = core_xcii(q_xai, e_xai, s_xai, 0.25)
-rel_xai = 100 * core_collab_xai / den
-
-# Bootstrap for CI (nonparametric, 5000 resamples)
-rel_valid = rel_xai[~np.isnan(rel_xai)]
-boot_medians = []
-rng_boot = np.random.default_rng(43)
-n_boot = 5000
-for _ in range(n_boot):
-    boot_sample = rng_boot.choice(rel_valid, size=len(rel_valid), replace=True)
-    boot_medians.append(np.median(boot_sample))
-ci_low, ci_high = np.percentile(boot_medians, [2.5, 97.5])
-
-# Shift AUROC=0.72
-auroc_shift = np.clip(rng.normal(0.72, 0.01, n), 0.70, 0.74)
-d_prime_shift = np.sqrt(2) * norm.ppf(auroc_shift)
-d_prime_shift_xai = d_prime_shift * 1.05  # +5% uplift
-mu1_shift = d_prime_shift_xai
-delta_shift = np.maximum(mu1_shift - mu0, eps)
-tau_star_shift = 0.5 * (mu0 + mu1_shift) + log_ratio / delta_shift
-tpr_shift = 1 - norm.cdf(tau_star_shift - mu1_shift)
-fpr_shift = 1 - norm.cdf(tau_star_shift - mu0)
-L_star_shift = c_FN * pi * (1 - tpr_shift) + c_FP * (1 - pi) * fpr_shift
-raw_s_shift = (L_worst - L_star_shift) / denom
-s_shift = np.clip(raw_s_shift, 0, 1)
-core_collab_shift = core_xcii(q_xai, e_xai, s_shift, 0.25)
-rel_shift = 100 * core_collab_shift / den
-
-# Fairness (group1 with d_prime * 0.95)
-d_prime_group1 = d_prime * 0.95
-d_prime_group1_xai = d_prime_group1 * 1.05  # +5% uplift
-mu1_group1 = d_prime_group1_xai
-delta_group1 = np.maximum(mu1_group1 - mu0, eps)
-tau_star_group1 = 0.5 * (mu0 + mu1_group1) + log_ratio / delta_group1
-tpr_group1 = 1 - norm.cdf(tau_star_group1 - mu1_group1)
-fpr_group1 = 1 - norm.cdf(tau_star_group1 - mu0)
-eod_tpr_diff = np.abs(tpr_xai - tpr_group1)
-eod_fpr_diff = np.abs(fpr_xai - fpr_group1)
-eod_linf = np.maximum(eod_tpr_diff, eod_fpr_diff)
-
-L_star_group1 = c_FN * pi * (1 - tpr_group1) + c_FP * (1 - pi) * fpr_group1
-raw_s_group1 = (L_worst - L_star_group1) / denom
-s_group1 = np.clip(raw_s_group1, 0, 1)
-core_group1 = core_xcii(q_xai, e_xai, s_group1, 0.25)
-
-# Calibration
-prob = tpr_xai
-outcome = rng.binomial(1, prob, n)
-brier = np.mean((prob - outcome)**2)
-
-bins = np.linspace(0, 1, 11)
-bin_idx = np.digitize(prob, bins) - 1
-ece = 0
-for i in range(10):
-    mask = bin_idx == i
-    if np.sum(mask) > 0:
-        bin_prob = np.mean(prob[mask])
-        bin_acc = np.mean(outcome[mask])
-        ece += np.abs(bin_prob - bin_acc) * np.sum(mask) / n
-
-sorted_idx = np.argsort(prob)
-group_size = n // 10
-ace = 0
-for i in range(10):
-    start = i * group_size
-    end = start + group_size if i < 9 else n
-    group_prob = np.mean(prob[sorted_idx[start:end]])
-    group_acc = np.mean(outcome[sorted_idx[start:end]])
-    ace += np.abs(group_prob - group_acc) * (end - start) / n
-
-# Ablations (median delta)
-core_ablate_q = core_xcii(q_human, e_xai, s_xai, 0.25)
-delta_q = np.median(core_collab_xai - core_ablate_q)
-
-core_ablate_e = core_xcii(q_xai, e_human, s_xai, 0.25)
-delta_e = np.median(core_collab_xai - core_ablate_e)
-
-core_ablate_s = core_xcii(q_xai, e_xai, s_human, 0.25)
-delta_s = np.median(core_collab_xai - core_ablate_s)
-
-# Sensitivity to lambda
-core_lam0 = core_xcii(q_xai, e_xai, s_xai, 0)
-rel_lam0 = 100 * core_lam0 / den
-
-core_lam1 = core_xcii(q_xai, e_xai, s_xai, 1)
-rel_lam1 = 100 * core_lam1 / den
-
-# Unequal variance SDT
-sigma0 = 1
-sigma1 = 1.2
-tau_grid = np.linspace(-3, 3, 200)
-tpr_uv = 1 - norm.cdf((tau_grid[None, :] - mu1[:, None]) / sigma1)
-fpr_uv = 1 - norm.cdf((tau_grid[None, :] - mu0[:, None]) / sigma0)
-loss_uv = c_FN[:, None] * pi[:, None] * (1 - tpr_uv) + c_FP[:, None] * (1 - pi[:, None]) * fpr_uv
-L_star_uv = np.min(loss_uv, axis=1)
-raw_s_uv = (L_worst - L_star_uv) / denom
-s_uv = np.clip(raw_s_uv, 0, 1)
-core_uv = core_xcii(q_xai, e_xai, s_uv, 0.25)
-rel_uv = 100 * core_uv / den
-
-# Print all metrics with 2 decimal places
-print(f"Median Relative X-CII: {np.median(rel_xai):.2f}%")
-print(f"95% CI: {ci_low:.2f}–{ci_high:.2f}%")
-print(f"Core X-CII >=0.75: {np.mean(core_collab_xai >= 0.75) * 100:.2f}%")
-print(f"Shift Median Relative X-CII: {np.median(rel_shift):.2f}%")
-print(f"Shift win rate: {np.mean(rel_shift > 100) * 100:.2f}%")
-print(f"Median EOD TPR diff: {np.median(eod_tpr_diff):.3f}, FPR diff: {np.median(eod_fpr_diff):.3f}")
-print(f"Median EOD L_inf: {np.median(eod_linf):.3f}")
-print(f"Group0/Group1 X-CII medians: {np.median(core_collab_xai):.2f}/{np.median(core_group1):.2f}")
-print(f"Brier score: {brier:.2f}")
-print(f"ECE: {ece:.2f}")
-print(f"Adaptive ECE: {ace:.2f}")
-print(f"ΔQ: {delta_q:.3f}")
-print(f"ΔE: {delta_e:.3f}")
-print(f"ΔS: {delta_s:.3f}")
-print(f"λ=0 Median Relative: {np.median(rel_lam0):.2f}%")
-print(f"λ=1 Median Relative: {np.median(rel_lam1):.2f}%")
-print(f"Unequal Variance Median Relative: {np.median(rel_uv):.2f}%")
+# Baseline and sensitivities
+print("Baseline:", run_scenario())
+print("λ=0 (geom):", run_scenario(lam=0))
+print("λ=0.5:", run_scenario(lam=0.5))
+print("λ=1.0 (arithmetic):", run_scenario(lam=1.0))
+print("η=0.6:", run_scenario(eta=0.6))
+print("η=0.8:", run_scenario(eta=0.8))
+print("ρ=-0.5:", run_scenario(rho=-0.5))
+print("ρ=0.5:", run_scenario(rho=0.5))
+print("uplift single-only:", run_scenario(uplift_team=False, uplift_single=True))
+print("uplift both:", run_scenario(uplift_team=True, uplift_single=True))
+# Domain shift (AUC=0.72) + F/R adjustments
+print("Shift AUC=0.72:", run_scenario(auc_fixed=0.72,
+      F_h=0.98, R_h=0.02, F_ai=0.98, R_ai=0.02, F_collab=0.92, R_collab=0.08))
 ```
 
-**Code Explanation:** This script computes all metrics reported in the paper. In code, Q and E are sampled in [0.70, 0.85] as already-normalized proxies to keep the synthetic setup simple. Run it to reproduce results (e.g., Median Relative X-CII: 104.95%). For group extensions or nonlinear mappings, extend the script accordingly. MIT License for code: Permission is hereby granted, free of charge, to any person obtaining a copy of this software to deal in the software without restriction.
+## Appendix B: Calibration Checklist and Alternatives
 
-**Synthetic Data Generation:** All data is generated on-the-fly using the distributions above; no pre-generated datasets are needed.
-
-**Environment Notes:** Tested on Python 3.12.3 with numpy 1.26.4 and scipy 1.13.1. For AUROC shifts or ablations, modify the relevant sections. Due to large bootstrap (5000), CI is narrow; this is expected with fixed seeds.
-
----
-
-## Appendix B: Additional Reproducibility Notes
-
-- **Win Rate Calculation:** Proportion of replicates where Relative X-CII > 100% (e.g., 100.00% under shifts).
-- **Group-Specific X-CII:** Compute separate cores for groups with scaled d′; medians 0.88/0.88 as reported. Note: FPR diff arises from threshold adjustments in group1; this is expected under the setup.
-- **Double-Reading Anchor:** For practical S cap, set S = min(S, 0.78) in sensitivity runs.
-- **Calibration Note:** Calibration metrics here reflect internal consistency of the simulation rather than real-world calibration.
-- **License for Code:** MIT License. For the paper: CC BY-SA 4.0.
-
----
+This appendix outlines proposed methodology for calibrating X-CII in real environments.  
+- ρ estimation: Compute Pearson/Spearman on z-transformed paired scores; stratify by case-mix; robustify with bootstrapping and binormal ROC fitting for covariance; pool within-class covariances (estimate ρ0, ρ1 and variances per class 0/1, weight by sample size under equal-variance); check equal-variance via slope s ≈1. Use split cross-validation to avoid leakage in experiments collecting both human confidence scores and AI outputs on the same cases.  
+- F/R calibration: Counterfactual surveys, calibration curves. For α: SOP compliance rate (e.g., documentation adherence threshold 0.8, double-check rates >0.9); F: explanation fidelity from blind evaluations (threshold 0.9); R: over-/under-reliance from behavioral metrics (threshold 0.1), normalized.  
+- Alternative Safety normalizations (not used; for illustration): Log-compressed: 1 - log(1 + L/L_ref)/log(1 + L_worst/L_ref); Power-transformed: 1 - (L/L_worst)^0.5 (expands high-performance differences).
 
 ## References
 
-[1] Rudin, C. (2019). Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. Nature Machine Intelligence, 1(5), 206-215.
-
-[2] Vats, V., et al. (2024). A Survey on Human-AI Collaboration with Large Foundation Models. arXiv preprint arXiv:2403.04931.
-
-[3] Chen, R. J., et al. (2024). Towards multimodal foundation models for clinical prediction. arXiv preprint arXiv:2402.09849.
-
-[4] Fragiadakis, G., et al. (2024). Evaluating Human-AI Collaboration: A Review and Methodological Framework. arXiv preprint arXiv:2407.19098.
-
-[5] Farquhar, S., et al. (2024). Detecting hallucinations in large language models using semantic entropy. Nature, 630(8017), 625-630.
-
-[6] Aziz, S., et al. (2024). Explainable AI in Healthcare: Systematic Review of Clinical Decision Support Systems. medRxiv preprint doi:10.1101/2024.08.10.24311735.
-
-[7] Al-Dhuhli, H., et al. (2024). A review of Explainable Artificial Intelligence in healthcare. Computers & Electrical Engineering, 118, 109370.
-
-[8] Aldughayfiq, B., et al. (2024). Explainable Artificial Intelligence for Medical Applications: A Review. arXiv preprint arXiv:2412.01829.
-
-[9] Bansal, G., et al. (2024). When combinations of humans and AI are useful. Nature Human Behaviour, doi:10.1038/s41562-024-02024-1.
-
-[10] Kovesdi, C., et al. (2025). Application of Signal Detection Theory in Evaluating Trust of Information Produced by Large Language Models. Proceedings of the Human Factors and Ergonomics Society Annual Meeting, doi:10.1177/10711813251368829.
-
-[11] European Parliament and Council. (2024). Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence and amending Regulation (EC) No 1223/2009 and Directives 2008/43/EC, 2009/48/EC, 2010/75/EU, 2011/65/EU, 2013/53/EU, 2014/33/EU, 2014/34/EU, 2014/35/EU, 2014/53/EU, 2014/68/EU and (EU) 2016/425 (Artificial Intelligence Act). Official Journal of the European Union, L series, 12 July 2024.
-
-[12] U.S. Food and Drug Administration. (2021). Good Machine Learning Practice for Medical Device Development: Guiding Principles. FDA/IMDRF Document.
-
----
+[1] European Parliament and Council. (2024). Regulation (EU) 2024/1689... Official Journal of the European Union, L 206, 12.7.2024, p. 1–252. CELEX: 32024R1689.  
+[2] IMDRF. (2025). Good Machine Learning Practice... IMDRF/AIML WG/N88 FINAL:2025. Published January 29, 2025.  
+[3] Rudin, C. (2019). Stop explaining black box... Nature Machine Intelligence, 1(5), 206-215. DOI: 10.1038/s42256-019-0048-x.  
+[4] Fragiadakis, G., et al. (2024). Evaluating Human-AI Collaboration... arXiv:2407.19098 [cs.HC].  
+[5] Hildt, E. (2025). What Is the Role of Explainability... Frontiers in Digital Health, 7. DOI: 10.3389/fdgth.2025.12025101.  
+[6] Farquhar, S., et al. (2024). Detecting hallucinations... Nature, 630(8017), 625-630. DOI: 10.1038/s41586-024-07421-0.  
+[7] Chen, R. J., et al. (2024). Towards multimodal foundation models... arXiv:2402.09849 [cs.LG].  
+[8] Giorgetti, C., et al. (2025). Healthcare AI, explainability... Frontiers in Medicine, 12:1545409. DOI: 10.3389/fmed.2025.1545409.  
+[9] Mohapatra, R. K. (2025). Advancing explainable AI... Computers in Biology and Medicine, 119:108599. DOI: 10.1016/j.compbiomed.2025.108599.  
+[10] El-Geneedy, M., et al. (2025). A comprehensive explainable AI... Scientific Reports, 15(1):11263. DOI: 10.1038/s41598-025-11263-9.  
+[11] Vani, M. S., et al. (2025). Personalized health monitoring... Scientific Reports, 15(1):15867. DOI: 10.1038/s41598-025-15867-z.  
+[12] CADTH. (2025). 2025 Watch List... NCBI Bookshelf ID: NBK613808.  
+[13] Kovesdi, C., et al. (2025). Application of Signal Detection Theory... Proceedings of the Human Factors and Ergonomics Society Annual Meeting. DOI: 10.1177/10711813251368829.  
+[14] Green, D. M., & Swets, J. A. (1966). Signal Detection Theory and Psychophysics. Wiley.  
+[15] Macmillan, N. A., & Creelman, C. D. (2005). Detection Theory: A User's Guide (2nd ed.). Lawrence Erlbaum Associates. DOI: 10.4324/9781410611147.  
+[16] O'Connor, M., et al. (2024). A systematic review... Computational and Structural Biotechnology Journal, 23:101-120. DOI: 10.1016/j.csbj.2024.07.015.  
+[17] Köhler, S., et al. (2025). Interacting with fallible AI... Frontiers in Psychology, 16:1574809. DOI: 10.3389/fpsyg.2025.1574809.  
+[18] Sorkin, R. D., & Dai, H. (1994). Signal detection analysis of the ideal group. Organizational Behavior and Human Decision Processes, 60(1), 1-13. DOI: 10.1006/obhd.1994.1072.
