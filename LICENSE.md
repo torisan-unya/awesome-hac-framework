@@ -1,6 +1,6 @@
 # Project "Unya-Tori" License
 
-This document, along with its addendum `PATENT_LICENSE_ADDENDUM.md`, forms the complete legal licensing framework for this project. The project is dual-licensed to appropriately cover its distinct components: software code and academic/documentary content.
+This document, along with its addendum [`PATENT_LICENSE_ADDENDUM.md`](PATENT_LICENSE_ADDENDUM.md), forms the complete legal licensing framework for this project. The project is dual-licensed to appropriately cover its distinct components: software code and academic/documentary content.
 
 Individual source files should contain their own `SPDX-License-Identifier` tag (e.g., `SPDX-License-Identifier: MIT` for code, `SPDX-License-Identifier: CC-BY-SA-4.0` for documents) to ensure clarity for automated tools.
 
@@ -32,7 +32,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-The "code" component of this project is also subject to the patent rights grant and defensive suspension provisions set forth in `PATENT_LICENSE_ADDENDUM.md`, which forms an integral and enforceable part of this license.
+The "code" component of this project is also subject to the patent rights grant and defensive suspension provisions set forth in [`PATENT_LICENSE_ADDENDUM.md`](PATENT_LICENSE_ADDENDUM.md), which forms an integral and enforceable part of this license.
 
 ---
 
@@ -52,7 +52,7 @@ The licensor cannot revoke these freedoms as long as you follow the license term
 
 ### Under the following terms:
 
-*   **Attribution** — You must give appropriate credit, provide a link to the license, and a clear indication if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+*   **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 *   **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 *   **No additional restrictions** — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 
