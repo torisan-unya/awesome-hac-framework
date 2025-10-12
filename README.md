@@ -87,7 +87,7 @@ For learners seeking depth: Follow this structured path to evolve from theory to
 1. **Why HAC Matters (Stages 1-3)**: Start with Paper 1 for E-CEI foundations, Paper 2 for X-CII extensions, and Paper 3 for Monte Carlo robustness. *Insight:* Builds synergy intuition (e.g., median Relative X-CII 112%). (Real analog: Mental models in HAC [arXiv:2510.08104](https://arxiv.org/abs/2510.08104).)
 2. **How X-CII Works (Paper 4)**: Dive into axiomatic formalization (Box-Cox, fairness diagnostics). Compile LaTeX via Overleaf for PDFs. *Key:* Median Relative X-CII 107.2% under uncertainty.
 3. **What It Enables (Paper 5)**: Apply to healthcare explainability (+5% d' uplift via SDT; EU AI Act alignment). Run sensitivity analyses with code snippets. *Extension:* Test domain shifts (AUC=0.72: 102.818%). (Real analog: XAI in healthcare [arXiv:2508.05753](https://arxiv.org/abs/2508.05753).)
-4. **Beyond Papers**: Link to repos like [The-Heliocentric-Method](https://github.com/torisan-unya/The-Heliocentric-Method) for creativity. Simulate phase transitions from Stage 5.
+4. **Beyond Papers**: Link to repos like [The-Heliocentric-Method](https://github.com/torisan-unya/The-Heliocentric-Method) for creativity or [policy-as-code](https://github.com/torisan-unya/policy-as-code) for societal implementation. Simulate phase transitions from Stage 5
 
 This path ensures progressive engagement: Theory illuminates, application activates.
 
@@ -167,6 +167,3 @@ including the **patent grant and defensive termination clause** in
 [`PATENT_LICENSE_ADDENDUM.md`](PATENT_LICENSE_ADDENDUM.md).
 
 This ensures the continued protection and sustainability of the project and its community.
-
-
-
