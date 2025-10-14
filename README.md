@@ -3,6 +3,8 @@
 Authored by Torisan Unya (Independent Researcher, ORCID: [0009-0004-7067-9765](https://orcid.org/0009-0004-7067-9765)). 
 Licensed under **MIT + Patent License Addendum** (see [License](#license)).
 
+Part of the [Agora-Supercluster](https://github.com/torisan-unya/Agora-Supercluster), this project advances Human-AI Collaboration (HAC) principles.
+
 **Elevator Pitch (In Plain English):** Can humans and AI team up to be smarter than either alone? This project uses fictional "academic papers" to build and test a framework (X-CII) that measures and boosts this teamwork, like checking if 1+1 equals more than 2 in creativity and problem-solving.
 
 **Description:** This awesome list curates **fictional** resources, papers, tools, and insights for advancing Human-AI Collaborative Intelligence (HAC). It traces the evolution of frameworks like E-CEI and X-CII, emphasizing synergistic evaluation, ethical alignment, uncertainty handling (e.g., hallucination detection with semantic entropy baselines, AUROC ~0.75-0.85), axiomatic rigor, and fairness diagnostics. **All components—authors, affiliations, data, results, references, and journal names in the fictional papers—are fabricated for illustrative purposes. No real-world empirical claims are made.** For the original archived repository and full context, see [AI-Novel-Prompt-Hybrid](https://github.com/torisan-unya/AI-Novel-Prompt-Hybrid). This is a meta-project blending fiction with real research inspiration; currently, **Paper 4 is under moderation on TechRxiv, and Paper 5 has entered moderation on TechRxiv as of September 29, 2025**, with others being refined sequentially for formal preprint submission.
